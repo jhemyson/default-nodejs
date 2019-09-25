@@ -2,6 +2,7 @@ import Sequelize from 'sequelize';
 
 import databaseConfig from '../config/database';
 
+//Combine models
 const models = [];
 
 class Database {

@@ -5,6 +5,7 @@ import express from 'express';
 import 'express-async-errors';
 
 import routes from './routes';
+import Database from './database';
 
 class App {
   constructor() {
@@ -21,6 +22,10 @@ class App {
 
   routes() {
     this.server.use(routes);
+  }
+
+  database(){
+    Database.init()
   }
 
   exceptionHandler() {
