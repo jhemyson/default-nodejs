@@ -5,6 +5,7 @@ import express from 'express';
 import 'express-async-errors';
 import morgan from 'morgan';
 import cors from 'cors';
+import helmet from 'helmet'
 
 import routes from './routes';
 import Database from './database';
@@ -19,6 +20,7 @@ class App {
   }
 
   middlewares() {
+    this.server.use(helmet());
     this.server.use(express.json());
     this.server.use(morgan('dev'));
     this.server.use(cors());
@@ -29,7 +31,7 @@ class App {
   }
 
   database(){
-    Database.init()
+    Database.init();
   }
 
   exceptionHandler() {
